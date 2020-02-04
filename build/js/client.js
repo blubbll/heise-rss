@@ -1,4 +1,8 @@
+const { fetch, moment } = window;
+
 const RSS_URL = `https://www.heise.de/developer/rss/news-atom.xml`;
+
+moment.locale("de");
 
 fetch("/heise-dev-news")
   .then(response => response.text())
@@ -10,9 +14,11 @@ fetch("/heise-dev-news")
     items.forEach(el => {
       html += `
         <article>
-          <img src="${el.querySelector("link").innerHTML}/image/large.png" alt="">
+          <h3>🕒${moment(el.querySelector("updated").innerHTML).format("DD.MM.YYYY -hh:mm")}</h3>
           <h2>
-            <a href="${el.querySelector("link").innerHTML}" target="_blank" rel="noopener">
+            <a href="${
+              el.querySelector("link").innerHTML
+            }" target="_blank" rel="noopener">
               ${el.querySelector("title").innerHTML}
             </a>
           </h2>

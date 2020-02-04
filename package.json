@@ -12,7 +12,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "request": "^2.88.0",
-    "node-sass": "^4.13.1"
+    "node-sass": "^4.13.1",
+    "es6-transpiler": "^0.7.18",
+    "terser": "^4.6.3"
   },
   "engines": {
     "node": "10.x"
